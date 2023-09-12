@@ -9,9 +9,9 @@ public class CommunityCenter extends AbstractClinic {
         this.triageType = triageType;
     }
 
-    public void triagePatient(String name, int gravity) {
-        super.triagePatient(name, gravity);
-        Patient patient = new Patient(name);
+    public void triagePatient(String name, int gravity, VisibleSymptom visibleSymptom) {
+        super.triagePatient(name, gravity, visibleSymptom);
+        Patient patient = new Patient(visibleSymptom, name);
         if (triageType.equals(TriageType.GRAVITY) && gravity > 5) {
             patientDeque.addFirst(patient);
         } else {
